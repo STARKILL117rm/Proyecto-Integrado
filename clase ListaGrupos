@@ -1,0 +1,48 @@
+public class ListasGrupos {
+    
+    String nombre;
+    String apellido;
+    int id_user;
+    int edad;
+    int grupo;
+ 
+    public ListasGrupos (String nombre, String apellido, int id_user, int edad, int grupo){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.id_user = id_user;
+        this.edad = edad;
+        this.grupo = grupo;
+    }
+    
+    public String getNombre () {
+    return nombre;
+    }
+    public void setNombre (String nombre) {
+    this.nombre = nombre;
+    }
+    public String getApellido () {
+    return apellido;
+    }
+    public void setApellido (String apellido) {
+    this. apellido = apellido;
+    }
+    public int getid_user() {
+    return id_user;
+    }
+    
+    public void setid_user (int id_user) {
+    this.id_user = id_user;
+    }
+    public int getEdad() {
+    return edad;
+    }
+    public void setEdad (int edad) {
+    this.edad = edad;
+    }
+    public int getGrupo () {
+    return grupo;
+    }
+    public void setGrupo (int grupo) {
+    this.grupo = grupo;
+}
+}
