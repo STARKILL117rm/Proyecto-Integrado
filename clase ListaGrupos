@@ -1,48 +1,58 @@
-public class ListasGrupos {
-    
-    String nombre;
-    String apellido;
-    int id_user;
-    int edad;
-    int grupo;
- 
-    public ListasGrupos (String nombre, String apellido, int id_user, int edad, int grupo){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.id_user = id_user;
-        this.edad = edad;
-        this.grupo = grupo;
+package proyectointegrador;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListaGrupo {
+    private List<Grupo> listaGrupos;
+
+    public ListaGrupo() {
+        this.listaGrupos = new ArrayList<>();
     }
-    
-    public String getNombre () {
-    return nombre;
+
+    public void agregarGrupo(Grupo grupo) {
+        listaGrupos.add(grupo);
     }
-    public void setNombre (String nombre) {
-    this.nombre = nombre;
+
+    public void mostrarGrupos() {
+        for (Grupo grupo : listaGrupos) {
+            System.out.println("Grupo:");
+            grupo.mostrar();
+            System.out.println("---------------------------");
+        }
     }
-    public String getApellido () {
-    return apellido;
+
+    public boolean hayEspacioDisponible() {
+        for (Grupo grupo : listaGrupos) {
+            if (grupo.hayEspacio()) {
+                return true;
+            }
+        }
+        return false;
     }
-    public void setApellido (String apellido) {
-    this. apellido = apellido;
+
+    public void insertarGrupoEnLista(Grupo nuevoGrupo) {
+        for (Grupo grupo : listaGrupos) {
+            if (grupo.hayEspacio()) {
+                grupo.agregarGrupo(nuevoGrupo);
+                return;
+            }
+        }
+        System.out.println("No hay espacio disponible en ningún grupo.");
     }
-    public int getid_user() {
-    return id_user;
+
+    public void eliminarGrupo(int idGrupo) {
+        for (Grupo grupo : listaGrupos) {
+            if (grupo.getIdGrupo() == idGrupo) {
+                listaGrupos.remove(grupo);
+                System.out.println("Grupo eliminado.");
+                return;
+            }
+        }
+        System.out.println("El grupo no se encontró en la lista.");
     }
-    
-    public void setid_user (int id_user) {
-    this.id_user = id_user;
+
+    public void mostrar() {
+        System.out.println("Información del grupo aquí...");
     }
-    public int getEdad() {
-    return edad;
-    }
-    public void setEdad (int edad) {
-    this.edad = edad;
-    }
-    public int getGrupo () {
-    return grupo;
-    }
-    public void setGrupo (int grupo) {
-    this.grupo = grupo;
-}
 }
